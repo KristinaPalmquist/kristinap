@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  cursor: none !important;
+}
+
+.bg-hotpink {
+  background-color: #ff69b4;
+}
+
+.bg-lightpink {
+  background-color: #ffd1dc;
+}
+
+.bg-brightyellow {
+  background-color: #ffeb3b;
+}
+
+.bg-gradient {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 105, 180, 0.2),
+    rgba(255, 235, 59, 0.2),
+    rgba(255, 209, 220, 0.2)
+  );
+}
+
+.text-hotpink {
+  color: #ff69b4;
+}
+
+.border-hotpink-40 {
+  border-color: rgba(255, 105, 180, 0.4);
+}
+
+.border-hotpink-20 {
+  border-color: rgba(255, 105, 180, 0.2);
+}
+
+/* Hide all default cursors everywhere */
+body,
+*,
+*:hover,
+*:active,
+*:focus,
+a,
+button {
+  cursor: none !important;
+}
+
+/* Hot pink cursor dot */
+#cursorDot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ec4899;
+  pointer-events: none;
+  z-index: 10000;
+  transition: none;
+  opacity: 1;
+}
+
+/* Light pink, see-through lazy circle */
+#cursorLazy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(
+    255,
+    209,
+    220,
+    0.6
+  ); /* light pink, semi-transparent */
+  pointer-events: none;
+  z-index: 9999;
+  transition: top 0.15s, left 0.15s;
+  opacity: 1;
+}

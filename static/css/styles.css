@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+*,
+*:hover,
+*:active,
+*:focus,
+.cursor-pointer,
+.cursor-default,
+.cursor-move,
+.cursor-text,
+.cursor-help,
+.cursor-wait,
+.cursor-not-allowed,
+a,
+a:hover,
+body,
+body:hover,
+button,
+button:hover,
+input,
+input:hover,
+textarea,
+textarea:hover,
+select,
+select:hover,
+label,
+label:hover {
+  cursor: none !important;
+}
+
+.bg-hotpink {
+  background-color: #ff69b4;
+}
+
+.bg-lightpink {
+  background-color: #ffd1dc;
+}
+
+.bg-brightyellow {
+  background-color: #ffeb3b;
+}
+
+.bg-gradient {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 105, 180, 0.2),
+    rgba(255, 235, 59, 0.2),
+    rgba(255, 209, 220, 0.2)
+  );
+}
+
+.text-hotpink {
+  color: #ff69b4;
+}
+
+.border-hotpink-40 {
+  border-color: rgba(255, 105, 180, 0.4);
+}
+
+.border-hotpink-20 {
+  border-color: rgba(255, 105, 180, 0.2);
+}
+
+#cursorDot {
+  position: fixed !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #ec4899 !important;
+  pointer-events: none !important;
+  z-index: 10000 !important;
+}
+
+#cursorLazy {
+  position: fixed !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 209, 220, 0.2) !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  transition: top 0.15s, left 0.15s !important;
+}
