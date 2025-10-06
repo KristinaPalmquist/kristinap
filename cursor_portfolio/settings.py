@@ -29,11 +29,13 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = [
     'lexicon-kzux.onrender.com',
     '.onrender.com',
+    'kristinap.azurewebsites.net',
+    '.azurewebsites.net',
     'localhost',
     '127.0.0.1'
 ]
@@ -157,3 +159,36 @@ STATICFILES_STORAGE = (
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Azure App Service specific settings
+if 'WEBSITE_HOSTNAME' in os.environ:
+    # Running on Azure App Service
+    CSRF_TRUSTED_ORIGINS = [
+        f"https://{os.environ['WEBSITE_HOSTNAME']}",
+        "https://kristinap.azurewebsites.net"
+    ]
+    
+    # Force HTTPS
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    
+    # Session and CSRF cookies
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    
+# Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
